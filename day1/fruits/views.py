@@ -19,10 +19,14 @@ def throw(request):
     return render(request, 'fruits/throw.html')
 
 def catch(request):
-    message = request.GET.get('message')
-
+    first = request.GET.get('first')
+    second = request.GET.get('second')
+    minus = int(first) - int(second)
     context = {
-        'message' : message,
+        'first' : first,
+        'second' : second,
+        'minus' : minus,
+        # 'minus' : first-second,
     }
 
     return render(request, 'fruits/catch.html', context)

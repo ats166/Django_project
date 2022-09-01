@@ -3,9 +3,13 @@
 {% block content %}
 <h1>Throw</h1>
 <form action=" {% url 'fruits:catch' %}" method='GET'>
-    <label for="message">Throw</label>
-    <input type="text" id="message" name="message">
-    <input type="submit">
+    <label for="first">첫번째 숫자 : </label>
+    <input type="text" id="first" name="first">
+
+    <label for="second">두번째 숫자 : </label>
+    <input type="text" id="second" name="second">
+    
+    <input type="submit" value="계산!">
 </form>
 
 {% endblock content %}
