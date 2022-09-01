@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <hr>
+    <h1> 싫어하는 과일 출력 안하기 </h1>
+    {% for fruit in fruit_list %}
+        {% if fruit not in hate %}
+        <p>{{ fruit }}</p>
+        {% endif %}
+    {% endfor %}
+    <hr>
+    <h1> 1글자인 과일은 출력 안하기 </h1>
+    {% for fruit in fruit_list %}
+        {% if fruit not in hate %}
+            {% if fruit|length > 1 %}
+            <p>{{ fruit }}</p>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    <hr>
+    <h1> 3글자 이하인 과일만 출력하기 </h1>
+    {% for fruit in fruit_list %}
+        {% if fruit not in hate %}
+            {% if fruit|length > 1 %}
+                <p>{{ fruit|truncatechars:3 }}</p>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+
+    
+
+{% endblock content %}
