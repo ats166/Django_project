@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1> EDIT </h1>
+    <form = action="{% url 'movies:update' movie.pk %}" method="POST">
+        {% csrf_token %}
+        <label for="title">title</label>
+        <input type="text" value="{{ movie.title }}" name="title">
+        <br>
+        <label for="audience">audience</label>
+        <input type="number" value="{{ movie.audience }}" name="audience">
+        <br>
+        <label for="release_date">release_date</label>
+        <input type="date" value="{{movie.release_date|date:'Y-m-d'}}" name="release_date">
+        <br>
+        <label for="genre">genre</label>
+        <select name="genre" id="genre">
+            <option>{{ Genre }}</option>
+            <option value="comedy">comedy</option>
+            <option value="horror">horror</option>
+            <option value="Drama">Drama</option>
+            <option value="action">action</option>
+        </select>
+        <br>
+        <label for="score">score</label>
+        <input type="number" max=5.0 min=0.0 step=0.1 value="{{ movie.score }}" name="score">
+        <br>
+        <label for="poster_url">poster_url</label>
+        <input type="text" value="{{ movie.poster_url }}" name="poster_url">
+        <br>
+        <label for="description">description</label>
+        <input type="text" value="{{ movie.description }}" name="description">
+        <br>
+    <input type="reset" >
+    <input type="submit">
+    </form>
+    <a href="{% url 'movies:index' %}">[BACK]</a>
+{% endblock content %}
+
+

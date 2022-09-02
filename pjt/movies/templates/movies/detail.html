@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1> DETAIL </h1>
+<hr>
+
+<img src="{{ movie.poster_url }}" alt="포스터" width=300>
+<br>
+<p> <strong>{{ movie.title }}</strong></p>
+<br> 
+<p> Audience : {{ movie.audience }} </p>
+<br> 
+<p> Release_date : {{ movie.release_date }} </p>
+<br> 
+<p> Genre : {{ movie.genre }} </p>
+<br> 
+<p> Score : {{ movie.score }} </p>
+<br> 
+<p> {{ movie.description }} </p>
+
+<a href="{% url 'movies:edit' movie.pk %}">[EDIT]</a>
+<br>
+<a href="{% url 'movies:delete' movie.pk %}">[DELETE]</a>
+<br>
+<a href="{% url 'movies:index' %}">[BACK]</a>
+{% endblock content %}
