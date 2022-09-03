@@ -2,8 +2,16 @@
 
 {% block content %}
     <h1>Catch</h1>
-        <p>{{ first|add:second }} </p>
-        <p>{{ minus }}</p>
+        <p>{{ first }} + {{ second }} = {{ first|add:second }} </p>
+        <p>{{ first }} - {{ second }} = {{ minus }}</p>
+        <p>{{ first }} * {{ second }} = {{ multiply }}</p>
+        {% if divide == "계산할 수 없습니다." %}
+            <p>{{ divide }}</p>
+        {% endif %}
+        {% if divide != "계산할 수 없습니다." %}
+            <p>{{ first }} / {{ second }} = {{ divide }}</p>
+        {% endif %}
+
 
     <a href="{% url 'fruits:throw' %}">다시 던지기</a>
 
