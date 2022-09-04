@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if item in items %}
+    <p>{{ item }} {{ count }}개의 가격은 6900원 입니다. </p>
+{% endif %}
+
+{% if item not in items %}
+    <p>{{ item }} 은/는 없어용</p>
+{% endif %}
+
+{% endblock content %}
