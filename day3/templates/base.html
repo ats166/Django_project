@@ -9,9 +9,14 @@
     <title>Document</title>
 </head>
 <body>
-    {% block content %}
-    
-    
+    <h2>Hello, {{ user }}</h2>
+    <a href="{% url 'accounts:signup' %}">회원가입</a>
+    <a href="{% url 'accounts:delete' %}">회원 삭제</a>
+    <a href="{% url 'accounts:update' %}">회원 수정</a>
+    <a href="{% url 'accounts:login' %}">로그인</a>
+    <a href="{% url 'accounts:logout' %}">로그아웃</a>
+    <hr>
+    {% block content %}  
     {% endblock content %}
 </body>
 <!-- JavaScript Bundle with Popper -->
